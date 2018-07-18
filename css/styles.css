@@ -35,11 +35,8 @@ h1, h2, h3, h4, h5, h6 {
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
 }
-#maincontent {
-  background-color: #f3f3f3;
-  min-height: 100%;
-  display: flex;
-}
+
+
 #footer {
   background-color: #444;
   color: #aaa;
@@ -71,7 +68,6 @@ nav h1 a {
     background-color: #eee;
     font-size: 17px;
     margin: 0;
-    width: 100%;
 }
 
 /* Display list items side by side */
@@ -102,6 +98,7 @@ nav h1 a {
   height: 400px;
   width: 100%;
   background-color: #ccc;
+  z-index: 0;
 }
 /* ====================== Restaurant Filtering ====================== */
 .wrapper {
@@ -139,7 +136,7 @@ nav h1 a {
   margin: 0;
   padding: 30px 15px 60px;
   text-align: center;
-  width: 100%;
+  /* width: 100%; */
 }
 #restaurants-list li {
   background-color: #fff;
@@ -149,7 +146,7 @@ nav h1 a {
   min-height: 380px;
   padding: 25px;
   text-align: left;
-  width: 270px;
+  max-width: 270px;
   display: inline-block;
 }
 #restaurants-list .restaurant-img {
@@ -189,24 +186,17 @@ nav h1 a {
 
 /* ====================== Restaurant Details ====================== */
 .inside header {
-  position: fixed;
+  position: sticky;
   top: 0;
-  width: 100%;
   z-index: 1000;
 }
 #content-container {
   display: flex;
   flex-direction: column;
   width: 50%;
+  min-width: 270px;
 }
-.inside #map-container {
-  background: blue none repeat scroll 0 0;
-  height: 86%;
-  position: fixed;
-  right: 0;
-  top: 65px;
-  width: 50%;
-}
+
 .inside #map {
   background-color: #ccc;
   height: 100%;
@@ -215,7 +205,6 @@ nav h1 a {
 .inside #footer {
   bottom: 0;
   position: sticky;
-  width: 100%;
 }
 #restaurant-name {
   color: #f18200;
@@ -281,4 +270,42 @@ nav h1 a {
 }
 #restaurant-hours td {
   color: #666;
+}
+
+@media only screen and (min-width: 600px) {
+  #maincontent {
+    background-color: #f3f3f3;
+    min-height: 100%;
+    display: flex;
+  }
+  .inside #map-container {
+    background: blue none repeat scroll 0 0;
+    height: 86%;
+    position: fixed;
+    right: 0;
+    top: 65px;
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .inside #maincontent{
+    width: 100%;
+  }
+  #maincontent {
+    flex-direction: column;
+  }
+  #map-container {
+    position: relative;
+    height: 400px;
+  }
+  #content-container {
+    margin: 0 auto;
+  }
+  .inside header {
+    position: relative;
+  }
+  .inside #footer {
+    position: relative;
+  }
 }
