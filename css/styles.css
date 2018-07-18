@@ -38,6 +38,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 #maincontent {
   background-color: #f3f3f3;
   min-height: 100%;
+  display: flex;
 }
 #footer {
   background-color: #444;
@@ -65,7 +66,7 @@ nav h1 a {
   text-transform: uppercase;
 }
 #breadcrumb {
-    padding: 10px 40px 16px;
+    padding: 5px 40px;
     list-style: none;
     background-color: #eee;
     font-size: 17px;
@@ -103,11 +104,14 @@ nav h1 a {
   background-color: #ccc;
 }
 /* ====================== Restaurant Filtering ====================== */
+.wrapper {
+  width: 100%;
+}
 .filter-options {
   width: 100%;
   padding-top: 5px;
   background-color: #3397DB;
-  align-items: center;
+  text-align: center;
 }
 .filter-options h2 {
   color: white;
@@ -135,6 +139,7 @@ nav h1 a {
   margin: 0;
   padding: 30px 15px 60px;
   text-align: center;
+  width: 100%;
 }
 #restaurants-list li {
   background-color: #fff;
@@ -189,12 +194,17 @@ nav h1 a {
   width: 100%;
   z-index: 1000;
 }
+#content-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
 .inside #map-container {
   background: blue none repeat scroll 0 0;
-  height: 87%;
+  height: 86%;
   position: fixed;
   right: 0;
-  top: 80px;
+  top: 65px;
   width: 50%;
 }
 .inside #map {
@@ -218,7 +228,7 @@ nav h1 a {
   line-height: 1.1;
 }
 #restaurant-img {
-	width: 90%;
+	width: 100%;
 }
 #restaurant-address {
   font-size: 12pt;
@@ -234,16 +244,15 @@ nav h1 a {
   padding: 2px 0;
   text-align: center;
   text-transform: uppercase;
-	width: 90%;
+	width: 100%;
 }
 #restaurant-container, #reviews-container {
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
-  padding: 140px 40px 30px;
-  width: 50%;
+  padding: 20px;
 }
 #reviews-container {
-  padding: 30px 40px 80px;
+  padding: 20px;
 }
 #reviews-container h2 {
   color: #f58500;
@@ -258,12 +267,12 @@ nav h1 a {
 }
 #reviews-list li {
   background-color: #fff;
-    border: 2px solid #f3f3f3;
+  border: 2px solid #f3f3f3;
   display: block;
   list-style-type: none;
   margin: 0 0 30px;
   overflow: hidden;
-  padding: 0 20px 20px;
+  padding: 20px;
   position: relative;
   width: 85%;
 }
