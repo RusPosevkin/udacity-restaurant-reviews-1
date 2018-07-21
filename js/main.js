@@ -87,6 +87,7 @@ initMap = () => {
   }).addTo(newMap);
 
   updateRestaurants();
+  document.querySelector("#map").style = "display: none";
 }
 /* window.initMap = () => {
   let loc = {
