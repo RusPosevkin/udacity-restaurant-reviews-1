@@ -4,10 +4,10 @@
 
 ## How to start
 
-1. Clone, install and start [the backend server](https://github.com/RusPosevkin/mws-server):
+1. Clone, install and start [the backend server](https://github.com/RusPosevkin/mws-restaurant-stage-3):
     ```bash
-    git clone https://github.com/RusPosevkin/mws-server.git
-    cd mws-server
+    git clone https://github.com/RusPosevkin/mws-restaurant-stage-3.git
+    cd mws-restaurant-stage-3
     npm install
     node server
     ```
