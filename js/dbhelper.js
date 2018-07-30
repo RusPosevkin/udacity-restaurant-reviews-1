@@ -197,4 +197,24 @@ class DBHelper {
       marker.addTo(newMap);
     return marker;
   }
+
+   /**
+    * Toggle restaurant to favourite or unfavourite state
+    */
+   static toggleRestaurantFavoriteState(id, state) {
+    return fetch(`${DBHelper.DATABASE_URL}restaurants/${id}/?is_favorite=${state}`, {
+      method: 'POST'
+    })
+    .then(response => response.json())
+    .then(restaurant => {
+      getIndexDB.then(function (db) {
+        let transaction = db.transaction(['restaurants'], 'readwrite');
+        transaction.oncomplete = () => console.log('toggleRestaurantFavoriteState success');
+        transaction.onerror = () => console.log('toggleRestaurantFavoriteState error');
+        let objectStore = transaction.objectStore('restaurants');
+        objectStore.put(restaurant);
+        objectStore.onsuccess = () => console.log('toggleRestaurantFavoriteState updated successfully', restaurant);
+      });
+    })
+  }
 }

@@ -215,7 +215,25 @@ nav h1 a {
   margin: 15px 0 30px;
   text-transform: uppercase;
   line-height: 1.1;
+  display: inline-block;
+  margin-right: 5px;
 }
+.restaurant-title {
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.favourite {
+  vertical-align: super;
+  height: 25px;
+  background-color: #2fd02f;
+  color: white;
+}
+
+.favourite[aria-pressed="true"] {
+  background-color: orange; 
+}
+
 #restaurant-img {
 	width: 100%;
 }

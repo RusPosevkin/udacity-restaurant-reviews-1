@@ -94,6 +94,10 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
 
+  const favouriteButton = document.getElementById('favourite');
+  favouriteButton.setAttribute("aria-pressed", restaurant.is_favorite);
+  favouriteButton.innerText = restaurant.is_favorite === 'true' ? 'Remove from favourite' : 'Add to favourite';
+
   // fill operating hours
   if (restaurant.operating_hours) {
     fillRestaurantHoursHTML();
@@ -199,3 +203,14 @@ getParameterByName = (name, url) => {
     return '';
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
+
+toggleFavourite = (event) => {
+  let element = event.target;
+  const isPressed = !(element.getAttribute('aria-pressed') === 'true');
+  event.target.innerText = isPressed ? 'Remove from favourite' : 'Add to favourite';
+
+  DBHelper.toggleRestaurantFavoriteState(self.restaurant.id, isPressed)
+    .then((restaurant) => {
+      element.setAttribute('aria-pressed', isPressed);
+    });
+};
