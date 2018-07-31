@@ -253,7 +253,7 @@ nav h1 a {
   text-transform: uppercase;
 	width: 100%;
 }
-#restaurant-container, #reviews-container {
+#restaurant-container, #reviews-container, .send-review-container {
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
   padding: 20px;
@@ -286,8 +286,21 @@ nav h1 a {
 #reviews-list li p {
   margin: 0 0 10px;
 }
+
+.review-comment {
+  width: 100%;
+}
+
+#review-author, #review-rating {
+  margin-left: 10px;
+}
+
 #restaurant-hours td {
   color: #666;
+}
+
+.send-review-item {
+  margin: 10px 0;
 }
 
 @media only screen and (min-width: 600px) {

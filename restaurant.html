@@ -55,6 +55,27 @@
       <section id="reviews-container">
         <ul id="reviews-list"></ul>
       </section>
+      <section class="send-review-container">
+          <h3>Add new review</h3>
+          <form class="send-review-form" onsubmit="sendReview(this);return false">
+            <section class="send-review-item">
+              <label for="review-author">Author:</label>
+              <input id="review-author" type="text" placeholder="Your name" required>
+            </section>
+   
+            <section class="send-review-item">
+              <label for="review-rating">Rating:</label>
+              <input id="review-rating" type="number" min="1" max="10" required>
+            </section>
+   
+            <section class="send-review-item">
+              <label for="review-comments">Your review:</label><br>
+              <textarea id="review-comments" class="review-comment" rows="4"
+                placeholder="Write your comments about this restaurant" required></textarea>
+            </section>
+            <input id="submitReview" value="Send" type="submit">
+          </form>
+        </section>
     </section>
   </main>
   <!-- End main -->
