@@ -253,7 +253,7 @@ nav h1 a {
   text-transform: uppercase;
 	width: 100%;
 }
-#restaurant-container, #reviews-container, .send-review-container {
+#restaurant-container, #reviews-container {
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
   padding: 20px;
@@ -293,6 +293,7 @@ nav h1 a {
 
 #review-author, #review-rating {
   margin-left: 10px;
+  border: 1px solid #f3f3f3;
 }
 
 #restaurant-hours td {
@@ -301,6 +302,17 @@ nav h1 a {
 
 .send-review-item {
   margin: 10px 0;
+}
+
+.send-review-container {
+  background-color: #fff; 
+  margin: 20px 60px 20px 20px;
+  padding: 20px;
+  border: 1px solid #f3f3f3;
+}
+
+#submitReview, .review-comment {
+  border: 1px solid #f3f3f3;
 }
 
 @media only screen and (min-width: 600px) {
@@ -316,6 +328,9 @@ nav h1 a {
     right: 0;
     top: 65px;
     width: 50%;
+  }
+  .send-review-container {
+    margin-right: 30px;
   }
 }
 
@@ -338,5 +353,12 @@ nav h1 a {
   }
   .inside #footer {
     position: relative;
+  }
+  #review-author, #review-rating {
+    margin-left: 0;
+  }
+  .send-review-container {
+    background-color: #fff; 
+    margin-right: 10px;
   }
 }
