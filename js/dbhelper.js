@@ -254,4 +254,18 @@ class DBHelper {
         })
       });
   }
+
+   /**
+    * Send restaurant review to database.
+    */
+   static sendRestaurantReview(review) {
+    return fetch(`${DBHelper.DATABASE_URL}reviews/`, {
+      method: 'POST',
+      body: JSON.stringify(review)
+    })
+    .then(response => response.json())
+    .catch(error => {
+      throw new Error("Server isn't responding, comment will be sent later");
+    })
+  }
 }

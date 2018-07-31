@@ -1,5 +1,6 @@
 let restaurant;
 var newMap;
+const sendReviewWorker = new Worker('js/review-worker.js');
 
 /**
  * Initialize map as soon as the page is loaded.
@@ -161,7 +162,7 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  */
 createReviewHTML = (review) => {
   const li = document.createElement('li');
-  const name = document.createElement('p');
+  const name = document.createElement('h4');
   name.innerHTML = review.name;
   li.appendChild(name);
 
@@ -221,4 +222,41 @@ toggleFavourite = (event) => {
     .then((restaurant) => {
       element.setAttribute('aria-pressed', isPressed);
     });
+};
+
+sendReview = (form) => {
+  const data = {
+    'restaurant_id': self.restaurant.id,
+    'name': form['review-author'].value,
+    'rating': form['review-rating'].value,
+    'comments': form['review-comments'].value
+  };
+  form.submitReview.disabled = true;
+
+  const addReview = (review) => {
+      const container = document.getElementById('reviews-container');
+      const ul = document.getElementById('reviews-list');
+      ul.appendChild(createReviewHTML(review));
+      container.appendChild(ul);
+  };
+
+  const resetForm = () => {
+    form.reset();
+    form.submitReview.disabled = false;
+  };
+ 
+
+  DBHelper.sendRestaurantReview(data)
+    .then(review => {
+      addReviewAndResetForm(review);
+    })
+    .catch(error => {
+      alert("Server isn't responding, comment will be sent later");
+      sendReviewWorker.onmessage = (message) => {
+        addReview(message.data);
+        resetForm();
+        alert('Your message sent successfully');
+      };
+      sendReviewWorker.postMessage(data);
+    })
 };
