@@ -319,7 +319,6 @@ nav h1 a {
   #maincontent {
     background-color: #f3f3f3;
     min-height: 100%;
-    display: flex;
   }
   .inside #map-container {
     background: blue none repeat scroll 0 0;
@@ -343,7 +342,10 @@ nav h1 a {
   }
   #map-container {
     position: relative;
-    height: 400px;
+    height: 250px;
+  }
+  #map {
+    height: 250px;
   }
   #content-container {
     margin: 0 auto;
